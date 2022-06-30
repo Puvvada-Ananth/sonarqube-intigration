@@ -44,7 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Puvvada-Ananth_Appointment-Scheduling_AYGws0CDSB1XADPka4Sq" /d:sonar.cs.vscoveragexml.reportsPaths="*.coverage.xml" /d:sonar.cs.vstest.reportsPaths="*.trx" /d:sonar.verbose=true /d:sonar.log.level="TRACE" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Puvvada-Ananth_sonarqube-intigration_AYGzYBX-SB1XADPka4TE" /d:sonar.cs.vscoveragexml.reportsPaths="*.coverage.xml" /d:sonar.cs.vstest.reportsPaths="*.trx" /d:sonar.verbose=true /d:sonar.log.level="TRACE" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build SonarQubeApp.sln
           dotnet test "SonarQubeApp.csproj" --collect "Code Coverage" --logger trx --results-directory "TestsResults"
           Get-ChildItem -Recurse -Filter "*.coverage" | Foreach-Object {
