@@ -50,4 +50,4 @@ jobs:
           ~/.sonar/scanner/dotnet-sonarscanner begin /k:"Puvvada-Ananth_sonarqube-intigration_AYGzYBX-SB1XADPka4TE" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           echo "building...."
           dotnet build SonarQubeApp.sln
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          ~/.sonar/scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
