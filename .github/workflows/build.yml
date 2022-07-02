@@ -13,10 +13,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.11
-      - name: Set up dotnet 3.1.x 
+      - name: Set up dotnet 6.0.x 
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '3.1.x'
+          dotnet-version: '6.0.x'
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 
