@@ -50,5 +50,12 @@ jobs:
           ~/.sonar/scanner/dotnet-sonarscanner begin /k:"Puvvada-Ananth_sonarqube-intigration_AYGzYBX-SB1XADPka4TE" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           echo "building...."
           dotnet build SonarQubeApp.sln
+          ~/.sonar/scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        shell: bash
+        run: |
+          ~/.sonar/scanner/dotnet-sonarscanner begin /k:"Puvvada-Ananth_sonarqube-intigration_AYGzYBX-SB1XADPka4TE" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=coverage-results/coverlet --logger trx --results-directory ./testresults
           ~/.sonar/scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
